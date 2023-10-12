@@ -1,7 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription, map } from 'rxjs';
 
-import { DataStorageService } from '../shared/data-storage.service';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../shared/store/store.reducer';
 import * as AuthActions from '../shared/store/auth/auth.actions';

@@ -3,7 +3,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription, map } from 'rxjs';
 
 import { Recipe } from '../recipe.model';
-import { RecipeService } from '../recipe.service';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../shared/store/store.reducer';
 
@@ -17,7 +16,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(
-    private recipeService: RecipeService,
     private router: Router,
     private route: ActivatedRoute,
     private store: Store<fromApp.AppState>
@@ -30,7 +28,6 @@ export class RecipeListComponent implements OnInit, OnDestroy {
       .subscribe((recipes: Recipe[]) => {
         this.recipes = recipes;
       });
-    this.recipes = this.recipeService.getRecipes();
   }
 
   onNewRecipe() {
